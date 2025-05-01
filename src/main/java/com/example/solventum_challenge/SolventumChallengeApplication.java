@@ -1,4 +1,4 @@
-package com.test.solventum_challenge;
+package com.example.solventum_challenge;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

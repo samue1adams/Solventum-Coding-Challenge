@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: solventum-challenge
+
+concurrent-requests:
+  max: 10

@@ -1,4 +1,4 @@
-package com.test.solventum_challenge;
+package com.example.solventum_challenge;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
