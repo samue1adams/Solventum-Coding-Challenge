@@ -6,18 +6,16 @@ import com.example.solventum_challenge.model.ShortenedUrlResponse;
 import com.example.solventum_challenge.model.UrlRequest;
 import com.example.solventum_challenge.service.UrlUtilityService;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
+import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static com.example.solventum_challenge.util.Constants.DECODE_ERROR_MESSAGE;
 import static com.example.solventum_challenge.util.Constants.SHORT_BASE_URL;
+
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -27,7 +25,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 
 @WebMvcTest(UrlUtilityController.class)
-
+@TestPropertySource(properties = "concurrent-requests.max=10")
 class UrlUtilityControllerTest {
 
 
@@ -106,9 +104,5 @@ class UrlUtilityControllerTest {
 
         verify(urlUtilityService, never()).encodeUrl(any());
     }
-
-
-
-
 
 }
