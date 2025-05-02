@@ -4,6 +4,7 @@ import com.example.solventum_challenge.model.OriginalUrlResponse;
 import com.example.solventum_challenge.model.UrlRequest;
 import com.example.solventum_challenge.model.ShortenedUrlResponse;
 import com.example.solventum_challenge.service.UrlUtilityService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,12 +19,12 @@ public class UrlUtilityController {
     }
 
     @PostMapping("encode")
-    public ShortenedUrlResponse shortenUrl(@RequestBody UrlRequest request){
+    public ShortenedUrlResponse shortenUrl(@Valid @RequestBody UrlRequest request){
         return urlUtilityService.encodeUrl(request);
     }
 
     @PostMapping("decode")
-    public OriginalUrlResponse retrieveOriginalUrl(@RequestBody UrlRequest request){
+    public OriginalUrlResponse retrieveOriginalUrl(@Valid @RequestBody UrlRequest request){
         return urlUtilityService.decodeUrl(request);
     }
 

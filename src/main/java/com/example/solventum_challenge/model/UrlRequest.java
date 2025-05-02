@@ -1,9 +1,7 @@
 package com.example.solventum_challenge.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import jakarta.validation.constraints.NotBlank;
+import lombok.*;
 
 @Data
 @Builder
@@ -11,6 +9,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class UrlRequest {
 
+        @NotBlank(message = "Url must be present in request body.")
         public String url;
 
 }
